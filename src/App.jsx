@@ -9,7 +9,7 @@ function App() {
                   count is {count}
               </button>
               <p className="subtitle">
-                  Drohnaufnahmen im südlichen Odenwald.
+                  Drohnenaufnahmen im südlichen Odenwald.
               </p>
           </div>
       </>
