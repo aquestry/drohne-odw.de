@@ -6,7 +6,11 @@ function App() {
           <p className="subtitle">
               Drohnenaufnahmen im südlichen Odenwald.
           </p>
+          <a className="impressum" href="https://schmid-koenig.de/impressum-n/">
+              Impressum
+          </a>
       </>
   )
 }
+
 export default App
