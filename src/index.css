@@ -5,6 +5,9 @@
     background-color: #242424;
     margin: 0;
     padding: 0;
+    background-image: url('background.JPG');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 body {
@@ -22,7 +25,6 @@ body {
 .header-icon {
     height: 50px;
     width: auto;
-    filter: invert();
 }
 
 button {
@@ -37,6 +39,30 @@ button {
     transition: border-color 0.2s;
 }
 
+.header-icon {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.header-icon:hover {
+    transform: scale(1.1);
+}
+
+button {
+    border-radius: 8px;
+    border: none;
+    padding: 0.8em 1.5em;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
 button:hover {
-    border-color: #646cff;
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(0);
 }
