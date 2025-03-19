@@ -1,14 +1,19 @@
-import React from 'react';
+import 'react';
 
 function App() {
-  return (
-    <div className="header">
-      <img src="/header.svg" alt="Header" className="header-icon" />
-      <button onClick={() => window.location.href = 'https://schmid-koenig.de/impressum-n/'}>
-        Impressum
-      </button>
-    </div>
-  );
+    return (
+        <div className="container">
+            <div className="background"></div>
+            <div className="content">
+                <p className="title">
+                    <span className="typing">Wartungsarbeiten</span>
+                </p>
+                <button className="impressum-button" onClick={() => window.location.href = 'https://schmid-koenig.de/impressum-n/'}>
+                    Impressum
+                </button>
+            </div>
+        </div>
+    );
 }
 
 export default App;

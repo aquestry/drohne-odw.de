@@ -1,70 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    background-image: url('/background.JPG');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    font-family: 'JetBrains Mono', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    --primary-color: #fff;
+    --bg-overlay: rgba(0, 0, 0, 0.35);
+    --button-bg: #1e1e1e;
+    --button-hover-bg: #333;
 }
 
-body {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.header {
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    user-select: none;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/background.jpg') center/cover no-repeat;
+    filter: blur(8px);
+    transform: scale(1.05);
+    z-index: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 1rem;
+    background: var(--bg-overlay);
 }
 
-.header-icon {
-    height: 50px;
-    width: auto;
+.title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
 }
 
-button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    background-color: #1a1a1a;
-    color: rgba(255, 255, 255, 0.87);
-    cursor: pointer;
-    transition: border-color 0.2s;
+.typing {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0; /* Start at zero width */
+    border-right: 0.15em solid black;
+    animation: typing 4s steps(30, end) forwards, blink-caret 0.75s step-end infinite, hide-caret 0.5s forwards 4s;
+    pointer-events: none;
 }
 
-.header-icon {
-    height: 50px;
-    width: auto;
-    transition: transform 0.3s ease;
-}
-
-.header-icon:hover {
-    transform: scale(1.1);
-}
-
-button {
-    border-radius: 8px;
+.impressum-button {
+    background-color: var(--button-bg);
     border: none;
-    padding: 0.8em 1.5em;
-    font-size: 1em;
-    font-weight: 500;
+    border-radius: 8px;
+    padding: 0.8em 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
-button:hover {
-    transform: scale(1.1);
+.impressum-button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-button:active {
-    transform: scale(0.9);
+.impressum-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    50% { border-color: transparent; }
+}
+
+@keyframes hide-caret {
+    from { border-color: black; }
+    to { border-color: transparent; }
+}
+
+@media (max-width: 768px) {
+    .typing {
+        font-size: 2rem;
+    }
+    .impressum-button {
+        font-size: 1rem;
+        padding: 0.6em 1.2rem;
+    }
 }
