@@ -4,8 +4,8 @@
     font-family: 'JetBrains Mono', system-ui, Avenir, Helvetica, Arial, sans-serif;
     --primary-color: #fff;
     --bg-overlay: rgba(0, 0, 0, 0.35);
-    --button-bg: #1e1e1e;
-    --button-hover-bg: #333;
+    --button-bg: #000000;
+    --button-hover-bg: #0c0c0c;
 }
 
 * {
@@ -17,8 +17,11 @@
 html, body {
     width: 100%;
     height: 100%;
-    overflow: hidden;
     user-select: none;
+    margin: 0;
+    padding: 0;
+    background: #222c38;
+    overflow: visible;
 }
 
 .container {
@@ -30,11 +33,12 @@ html, body {
 
 .background {
     position: absolute;
+    cover: no-repeat;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('/background.jpg') center/cover no-repeat;
+    background: url('/background.jpg');
     filter: blur(8px);
     transform: scale(1.05);
     z-index: 0;
@@ -63,7 +67,7 @@ html, body {
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
-    width: 0; /* Start at zero width */
+    width: 0;
     border-right: 0.15em solid black;
     animation: typing 4s steps(30, end) forwards, blink-caret 0.75s step-end infinite, hide-caret 0.5s forwards 4s;
     pointer-events: none;
@@ -73,22 +77,22 @@ html, body {
     background-color: var(--button-bg);
     border: none;
     border-radius: 8px;
-    padding: 0.8em 1.5rem;
-    font-size: 1.2rem;
+    padding: 1em 2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: var(--primary-color);
     cursor: pointer;
-    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .impressum-button:hover {
     background-color: var(--button-hover-bg);
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .impressum-button:active {
-    transform: translateY(0);
+    transform: scale(0.95);
     box-shadow: none;
 }
 
@@ -112,6 +116,9 @@ html, body {
     }
     .impressum-button {
         font-size: 1rem;
-        padding: 0.6em 1.2rem;
+        padding: 0.8em 1.5rem;
+    }
+    body {
+        overflow: hidden;
     }
 }
